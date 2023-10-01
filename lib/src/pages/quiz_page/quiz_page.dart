@@ -1,5 +1,4 @@
 import 'package:quizzy_app/quzzy_app_library.dart';
-import 'package:quizzy_app/src/pages/result_page/result_page.dart';
 
 class QuizPage extends StatefulWidget {
   const QuizPage({
@@ -50,7 +49,9 @@ class _QuizPageState extends State<QuizPage> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (ctx) => const ResultPage(),
+          builder: (ctx) => ResultPage(
+            level: widget.level,
+          ),
         ),
       );
     }

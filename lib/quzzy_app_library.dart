@@ -27,3 +27,5 @@ export 'package:quizzy_app/src/pages/quiz_page/widget/quiz_container.dart';
 export 'package:quizzy_app/src/pages/quiz_page/widget/quiz_timer.dart';
 export 'package:quizzy_app/src/pages/quiz_page/widget/bottom_container.dart';
 export 'package:quizzy_app/src/pages/quiz_page/widget/result_container.dart';
+
+export 'package:quizzy_app/src/pages/result_page/result_page.dart';

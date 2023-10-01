@@ -1,13 +1,13 @@
 import 'package:quizzy_app/quzzy_app_library.dart';
 
-class ResultPage extends StatefulWidget {
-  const ResultPage({super.key});
+class ResultPage extends StatelessWidget {
+  const ResultPage({
+    required this.level,
+    super.key,
+  });
 
-  @override
-  State<StatefulWidget> createState() => _ResultPageState();
-}
+  final AppLevel level;
 
-class _ResultPageState extends State<ResultPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -77,6 +77,88 @@ class _ResultPageState extends State<ResultPage> {
               ),
             ),
           ),
+          Align(
+            alignment: const Alignment(0, 0.5),
+            child: Container(
+              height: 150,
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  OutlinedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => QuizPage(level: level),
+                        ),
+                      );
+                    },
+                    style: OutlinedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 100,
+                        vertical: 15,
+                      ),
+                      side: BorderSide(
+                        width: 3.0,
+                        color: Theme.of(context).colorScheme.onPrimaryContainer,
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        side: BorderSide(
+                          width: 4,
+                          color: Theme.of(context).colorScheme.primaryContainer,
+                        ),
+                      ),
+                    ),
+                    child: const Text(
+                      "Play again",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 24,
+                      ),
+                    ),
+                  ),
+                  OutlinedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const HomePage(),
+                        ),
+                      );
+                    },
+                    style: OutlinedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 100,
+                        vertical: 15,
+                      ),
+                      side: BorderSide(
+                        width: 3.0,
+                        color: Theme.of(context).colorScheme.onPrimaryContainer,
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        side: BorderSide(
+                          width: 4,
+                          color: Theme.of(context).colorScheme.primaryContainer,
+                        ),
+                      ),
+                    ),
+                    child: const Text(
+                      "Home",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 24,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          const BottomContainer(),
         ],
       ),
     );
