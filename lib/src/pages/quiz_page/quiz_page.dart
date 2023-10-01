@@ -59,6 +59,7 @@ class _QuizPageState extends State<QuizPage> {
 
   void userAnswer(double? answer) {
     controller.addUserAnswer(answer);
+    if (_timer != null) _timer!.cancel();
     generateQuiz();
   }
 

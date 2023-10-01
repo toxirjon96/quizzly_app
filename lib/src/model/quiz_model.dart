@@ -1,5 +1,7 @@
 import 'package:quizzy_app/quzzy_app_library.dart';
+
 final Random randomGenerator = Random();
+
 class QuizModel {
   final double firstNumber;
   final double secondNumber;
@@ -10,7 +12,7 @@ class QuizModel {
     required this.firstNumber,
     required this.secondNumber,
     required this.operation,
-  }){
+  }) {
     variants = _variantList;
   }
 
@@ -19,22 +21,26 @@ class QuizModel {
     double answer = trueResult;
     variantList.add(answer);
 
-    int seedRandom = (answer + 1).toInt();
+    int seedRandom = (answer + 1).ceil();
 
-    while(true){
+    while (true) {
       if (variantList.length == 4) break;
       int temp = randomGenerator.nextInt(10 + seedRandom);
       double rNumber = temp.toDouble();
-      if (!variantList.contains(rNumber)){
+      if (variantList.contains(rNumber)) {
+        variantList.add(rNumber + 1);
+      } else {
         variantList.add(rNumber);
-        seedRandom++;
       }
+      seedRandom++;
     }
     variantList.shuffle();
 
     return variantList;
   }
-  String get quizText => "$firstNumber ${operation.operation} $secondNumber = ?";
+
+  String get quizText =>
+      "$firstNumber ${operation.operation} $secondNumber = ?";
 
   double get trueResult => switch (operation) {
         Operation.add => firstNumber + secondNumber,
