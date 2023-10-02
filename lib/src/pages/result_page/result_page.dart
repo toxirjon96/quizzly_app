@@ -23,10 +23,10 @@ class _ResultPageState extends State<ResultPage> {
 
   @override
   void initState() {
+    _confettiController = ConfettiController(
+      duration: const Duration(seconds: 10),
+    );
     if (widget.correctAnswer >= 8) {
-      _confettiController = ConfettiController(
-        duration: const Duration(seconds: 10),
-      );
       _confettiController.play();
     }
 
