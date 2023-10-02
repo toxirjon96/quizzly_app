@@ -29,3 +29,8 @@ export 'package:quizzy_app/src/pages/quiz_page/widget/bottom_container.dart';
 export 'package:quizzy_app/src/pages/quiz_page/widget/result_container.dart';
 
 export 'package:quizzy_app/src/pages/result_page/result_page.dart';
+export 'package:quizzy_app/src/pages/result_page/widget/header.dart';
+export 'package:quizzy_app/src/pages/result_page/widget/quiz_result_container.dart';
+export 'package:quizzy_app/src/pages/result_page/widget/task_button.dart';
+export 'package:quizzy_app/src/pages/result_page/widget/total_score_container.dart';
+export 'package:quizzy_app/src/pages/result_page/widget/button_container.dart';

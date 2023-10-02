@@ -51,6 +51,8 @@ class _QuizPageState extends State<QuizPage> {
         MaterialPageRoute(
           builder: (ctx) => ResultPage(
             level: widget.level,
+            correctAnswer: controller.correctAnswerCount,
+            wrongAnswer: controller.incorrectAnswerCount,
           ),
         ),
       );

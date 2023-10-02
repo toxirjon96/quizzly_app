@@ -2,9 +2,13 @@ import 'package:quizzy_app/quzzy_app_library.dart';
 
 class ResultPage extends StatelessWidget {
   const ResultPage({
+    required this.correctAnswer,
+    required this.wrongAnswer,
     required this.level,
     super.key,
   });
+  final int correctAnswer;
+  final int wrongAnswer;
 
   final AppLevel level;
 
@@ -13,151 +17,13 @@ class ResultPage extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          Align(
-            alignment: Alignment.topCenter,
-            child: Container(
-              height: 350,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.only(
-                    bottomLeft: Radius.circular(60),
-                    bottomRight: Radius.circular(60),
-                  ),
-                  color: Theme.of(context).colorScheme.onPrimaryContainer),
-            ),
+          const Header(),
+          TotalScoreContainer(totalScore: correctAnswer * 10),
+          QuizResultContainer(
+            correctAnswerCount: correctAnswer,
+            wrongAnswerCount: wrongAnswer,
           ),
-          Align(
-            alignment: const Alignment(0, -0.8),
-            child: Container(
-              width: 120,
-              height: 120,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Theme.of(context).colorScheme.onSecondary,
-              ),
-              child: const Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Your score",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w400,
-                      fontSize: 20,
-                    ),
-                  ),
-                  Text(
-                    "100",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 24,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Align(
-            alignment: const Alignment(0, -0.2),
-            child: Container(
-              margin: const EdgeInsets.all(30),
-              width: double.infinity,
-              height: 120,
-              decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.onSecondary,
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(20),
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    color: Theme.of(context).colorScheme.onPrimaryContainer,
-                    blurRadius: 4,
-                    spreadRadius: 2,
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Align(
-            alignment: const Alignment(0, 0.5),
-            child: Container(
-              height: 150,
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  OutlinedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => QuizPage(level: level),
-                        ),
-                      );
-                    },
-                    style: OutlinedButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 100,
-                        vertical: 15,
-                      ),
-                      side: BorderSide(
-                        width: 3.0,
-                        color: Theme.of(context).colorScheme.onPrimaryContainer,
-                      ),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15),
-                        side: BorderSide(
-                          width: 4,
-                          color: Theme.of(context).colorScheme.primaryContainer,
-                        ),
-                      ),
-                    ),
-                    child: const Text(
-                      "Play again",
-                      style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 24,
-                      ),
-                    ),
-                  ),
-                  OutlinedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const HomePage(),
-                        ),
-                      );
-                    },
-                    style: OutlinedButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 100,
-                        vertical: 15,
-                      ),
-                      side: BorderSide(
-                        width: 3.0,
-                        color: Theme.of(context).colorScheme.onPrimaryContainer,
-                      ),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15),
-                        side: BorderSide(
-                          width: 4,
-                          color: Theme.of(context).colorScheme.primaryContainer,
-                        ),
-                      ),
-                    ),
-                    child: const Text(
-                      "Home",
-                      style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 24,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
+          ButtonContainer(level: level),
           const BottomContainer(),
         ],
       ),
