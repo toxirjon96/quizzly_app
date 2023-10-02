@@ -13,11 +13,13 @@ class QuizService {
   });
 
   QuizModel get generateQuizModel {
+    Operation operation =
+        Operation.values[randomGenerator.nextInt(Operation.values.length)];
     int a = randomGenerator.nextInt(10);
     int b = randomGenerator.nextInt(10);
 
-    Operation operation =
-        Operation.values[randomGenerator.nextInt(Operation.values.length)];
+    if (operation == Operation.divide && b == 0) b++;
+
     QuizModel quizModel = QuizModel(
       firstNumber: a.toDouble(),
       secondNumber: b.toDouble(),

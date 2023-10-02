@@ -19,6 +19,9 @@ export 'package:quizzy_app/src/controller/quiz_controller.dart';
 
 //pages
 export 'package:quizzy_app/src/pages/home_page/home_page.dart';
+export 'package:quizzy_app/src/pages/home_page/widget/info.dart';
+export 'package:quizzy_app/src/pages/home_page/widget/level_button.dart';
+export 'package:quizzy_app/src/pages/home_page/widget/column_container.dart';
 
 export 'package:quizzy_app/src/pages/quiz_page/quiz_page.dart';
 export 'package:quizzy_app/src/pages/quiz_page/widget/result_button.dart';
