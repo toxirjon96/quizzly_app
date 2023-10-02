@@ -4,6 +4,7 @@ library quizzy_app_library;
 export 'package:flutter/material.dart';
 export 'dart:math';
 export 'dart:async';
+export 'package:confetti/confetti.dart';
 
 //constants
 export 'package:quizzy_app/src/constants/theme_config.dart';
@@ -37,3 +38,4 @@ export 'package:quizzy_app/src/pages/result_page/widget/quiz_result_container.da
 export 'package:quizzy_app/src/pages/result_page/widget/task_button.dart';
 export 'package:quizzy_app/src/pages/result_page/widget/total_score_container.dart';
 export 'package:quizzy_app/src/pages/result_page/widget/button_container.dart';
+export 'package:quizzy_app/src/pages/result_page/widget/congratulation.dart';

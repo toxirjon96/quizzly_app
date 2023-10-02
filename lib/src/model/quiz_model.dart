@@ -46,7 +46,7 @@ class QuizModel {
         Operation.add => firstNumber + secondNumber,
         Operation.subtract => firstNumber - secondNumber,
         Operation.multiply => firstNumber * secondNumber,
-        Operation.divide => firstNumber / secondNumber,
+        Operation.divide => double.parse((firstNumber / secondNumber).toStringAsFixed(1)),
       };
 
   @override

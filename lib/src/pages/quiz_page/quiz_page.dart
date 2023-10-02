@@ -31,9 +31,7 @@ class _QuizPageState extends State<QuizPage> {
         });
         if (time < 0) {
           timer.cancel();
-          if (!controller.endQuiz) {
-            userAnswer(null);
-          }
+          userAnswer(null);
         }
       });
     }
@@ -87,26 +85,31 @@ class _QuizPageState extends State<QuizPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        width: double.infinity,
-        decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.onSecondary,
-        ),
-        child: Stack(
-          children: [
-            const TopBar(),
-            QuizContainer(
-              quizCount: controller.quizCount,
-              quizOrder: controller.quizOrder,
-              quizText: quiz.quizText,
-            ),
-            QuizTimer(time: time),
-            ResultContainer(
-              userAnswer: userAnswer,
-              answers: quiz.variants,
-            ),
-            const BottomContainer(),
-          ],
+      body: SafeArea(
+        child: Container(
+          width: double.infinity,
+          decoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.onSecondary,
+          ),
+          child: Stack(
+            children: [
+              const TopBar(),
+              QuizContainer(
+                quizCount: controller.quizCount,
+                quizOrder: controller.quizOrder,
+                quizText: quiz.quizText,
+              ),
+              QuizTimer(
+                time: time,
+                seconds: matchSeconds,
+              ),
+              ResultContainer(
+                userAnswer: userAnswer,
+                answers: quiz.variants,
+              ),
+              const BottomContainer(),
+            ],
+          ),
         ),
       ),
     );
