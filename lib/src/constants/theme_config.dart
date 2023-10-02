@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:quizzy_app/quzzy_app_library.dart';
 
 class ThemeConfig {
   final kColorSchema = ColorScheme.fromSeed(
